@@ -1,7 +1,16 @@
-'use client'
-import Navbar from "@/components/Navbar";
-import { useState, useEffect, useCallback } from "react";
-import supabase from "./supabase";
+'use client';
+import Navbar from '@/components/Navbar';
+import ResultBox from '@/components/ResultBox';
+import { TooltipDemo } from '@/components/self/ToolTip';
+import TypeContent from '@/components/TypeContent';
+import VisualKeyboard from '@/components/VisualKeyboard';
+import { useCallback, useEffect, useState } from 'react';
+import { FaRedoAlt } from 'react-icons/fa';
+import { RiArrowRightSLine } from "react-icons/ri";
+import supabase from './supabase';
+import Image from 'next/image';
+import Link from 'next/link';
+
 export type textObject = {
   chars: string[]; 
 };
@@ -10,6 +19,7 @@ export type ResultType = {
   wpm: number;
   accuracy: number;
 }
+
 export default function Home() {
   const [finalText, setFinalText] = useState<string[][]>([
     ["H", "e", "l", "l", "o"],
@@ -390,7 +400,7 @@ const startTimer = useCallback(() => {
           openBattleDialog={openBattleDialog}
           setOpenBattleDialog={setOpenBattleDialog}
         />
-{/* 
+
         <div className='mt-20'>
           <TypeContent 
             started={started}
@@ -434,7 +444,7 @@ const startTimer = useCallback(() => {
 
             {showResult && (
               <ResultBox setShowResult={setShowResult} result={result} restart={restart}/>
-            )} */}
+            )}
 
     </div>
   );
